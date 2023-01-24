@@ -12,7 +12,7 @@ func MainPage(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	var filepath = path.Join("Frontend","index.html")
+	var filepath = path.Join("frontend","index.html")
 
 	var tmpl, err = template.ParseFiles(filepath)
 	if err != nil{
@@ -26,6 +26,6 @@ func MainPage(w http.ResponseWriter, r *http.Request){
 
 	err = tmpl.Execute(w, data)
 	if err != nil{
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, "Failed to Execute", http.StatusInternalServerError)
 	}
 }
